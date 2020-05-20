@@ -2,9 +2,10 @@ const inquirer = require("inquirer");
 const axios = require("axios");
 const fs = require('fs');
 const path = require('path');
+
 async function main(){
     const userResponse = await inquirer
-    .prompt([
+        .prompt([
         {
             type: "input",
             message: "What is your GitHub user name?",
@@ -59,7 +60,7 @@ async function main(){
         console.log(`starting`);
         console.log(userResponse);
         const gitUsername = userResponse.username;
-        const projectTittle = userResponse.projectTittle;
+        const projectTittle = userResponse.projectTitle;
         const projectDescription = userResponse.projectDescription;
         const installationProcess = userResponse.installationProcess;
         const instruction = userResponse.instruction;
@@ -94,8 +95,9 @@ async function main(){
             \n <img src="${gitContribuProfileImage}" alt="drawing" width="150" display="inline"/> ${contributorsGitUserName}  GitHubLink: ${gitContribuUrl}`);
         }
         var result = (`
-# ${projectTittle} 
-${projectDescription}
+# ${projectTitle} 
+# ${projectDescription}
+## Table of Contents
 \n* [Installation](#Installation)
 \n* [Instructions](#Instructions)
 \n* [License](#License)
