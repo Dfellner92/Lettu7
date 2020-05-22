@@ -13,8 +13,8 @@ async function main(){
         },
         {
             type: "input",
-            message: "What is your Project Tittle?",
-            name: "projectTittle"
+            message: "What is your Project Title?",
+            name: "projectTitle"
         },
         {
             type: "input",
@@ -60,7 +60,7 @@ async function main(){
         console.log(`starting`);
         console.log(userResponse);
         const gitUsername = userResponse.username;
-        const projectTittle = userResponse.projectTitle;
+        const projectTitle = userResponse.projectTitle;
         const projectDescription = userResponse.projectDescription;
         const installationProcess = userResponse.installationProcess;
         const instruction = userResponse.instruction;
