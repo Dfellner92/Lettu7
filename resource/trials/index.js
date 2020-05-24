@@ -113,8 +113,8 @@ async function main(){
             var resultContributor = resultContributor + (`
             \n <img src="${gitContribuProfileImage}" alt="drawing" width="150" display="inline"/> ${contributorsGitUserName}  GitHubLink: ${gitContribuUrl}`);
         }
-        var result = (` [
-![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+        var result = (` 
+[![GitHub version](https://badge.fury.io/gh/Naereen%2FStrapDown.js.svg)](https://github.com/Naereen/StrapDown.js)
 https://img.shields.io/github/license/dfellner92/Lettu7?logo=${gitBadgeLogo}&style=${gitBadgeStyle}
 # ${projectTitle} 
 # ${projectDescription}

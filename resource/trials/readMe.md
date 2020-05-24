@@ -1,8 +1,8 @@
- [
-![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
-https://img.shields.io/github/license/dfellner92/Lettu7?logo=asd&style=plastic
-# asd 
-# asd
+ 
+[![GitHub version](https://badge.fury.io/gh/Naereen%2FStrapDown.js.svg)](https://github.com/Naereen/StrapDown.js)
+https://img.shields.io/github/license/dfellner92/Lettu7?logo=asd&style=social
+#  
+# 
 ## Table of Contents
 
 * [Installation](#Installation)
@@ -17,18 +17,18 @@ https://img.shields.io/github/license/dfellner92/Lettu7?logo=asd&style=plastic
 
 * [Tests](#Tests)
 ## Installation
-asdfasd
+s
 ## Instructions
-asdf
+s
 ```
-asdf
+s
 ```
 ## License 
-This project is licensed under the asd - see the asd file for details
+This project is licensed under the s - see the s file for details
 ## Contributors
 undefined
             
- <img src="https://avatars2.githubusercontent.com/u/8127015?v=4" alt="drawing" width="150" display="inline"/> as  GitHubLink: https://github.com/as
+ <img src="https://avatars1.githubusercontent.com/u/1969638?v=4" alt="drawing" width="150" display="inline"/> s  GitHubLink: https://github.com/s
 ## Tests
 s
 ## Author 
