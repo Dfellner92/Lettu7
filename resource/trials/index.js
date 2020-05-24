@@ -12,6 +12,23 @@ async function main(){
             name: "username"
         },
         {
+            type: "list",
+            message: "What style badge would you like?",
+            name: "badgeStyle",
+            choices: [
+                "plastic",
+                "flat",
+                "flat-square",
+                "for-the-badge",
+                "social"
+            ]
+        },
+        {
+            type: "input",
+            message: "What do you want the badge logo to say?",
+            name: "badgeLogo"
+        },
+        {
             type: "input",
             message: "What is your Project Title?",
             name: "projectTitle"
@@ -60,6 +77,8 @@ async function main(){
         console.log(`starting`);
         console.log(userResponse);
         const gitUsername = userResponse.username;
+        const gitBadgeStyle = userResponse.badgeStyle;
+        const gitBadgeLogo = userResponse.badgeLogo;
         const projectTitle = userResponse.projectTitle;
         const projectDescription = userResponse.projectDescription;
         const installationProcess = userResponse.installationProcess;
@@ -94,7 +113,9 @@ async function main(){
             var resultContributor = resultContributor + (`
             \n <img src="${gitContribuProfileImage}" alt="drawing" width="150" display="inline"/> ${contributorsGitUserName}  GitHubLink: ${gitContribuUrl}`);
         }
-        var result = (`
+        var result = (` [
+![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+https://img.shields.io/github/license/dfellner92/Lettu7?logo=${gitBadgeLogo}&style=${gitBadgeStyle}
 # ${projectTitle} 
 # ${projectDescription}
 ## Table of Contents
