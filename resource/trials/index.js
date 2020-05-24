@@ -114,8 +114,7 @@ async function main(){
             \n <img src="${gitContribuProfileImage}" alt="drawing" width="150" display="inline"/> ${contributorsGitUserName}  GitHubLink: ${gitContribuUrl}`);
         }
         var result = (` 
-[![GitHub version](https://badge.fury.io/gh/Naereen%2FStrapDown.js.svg)](https://github.com/Naereen/StrapDown.js)
-https://img.shields.io/github/license/dfellner92/Lettu7?logo=${gitBadgeLogo}&style=${gitBadgeStyle}
+[![GitHub version](https://badge.fury.io/gh/dfellner92%2FLettu7.svg)](https://badge.fury.io/gh/dfellner92%2FLettu7)
 # ${projectTitle} 
 # ${projectDescription}
 ## Table of Contents
