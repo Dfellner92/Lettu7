@@ -1,5 +1,4 @@
 const inquirer = require("inquirer");
-const axios = require("axios");
 const fs = require('fs');
 const path = require('path');
 
@@ -7,26 +6,9 @@ async function main(){
     const userResponse = await inquirer
         .prompt([
         {
-            type: "input",
-            message: "What is your GitHub user name?",
-            name: "username"
-        },
-        {
-            type: "list",
-            message: "What style badge would you like?",
-            name: "badgeStyle",
-            choices: [
-                "plastic",
-                "flat",
-                "flat-square",
-                "for-the-badge",
-                "social"
-            ]
-        },
-        {
-            type: "input",
-            message: "What do you want the badge logo to say?",
-            name: "badgeLogo"
+             type: "input",
+             message: "What is your GitHub user name?",
+             name: "username"
         },
         {
             type: "input",
@@ -35,23 +17,18 @@ async function main(){
         },
         {
             type: "input",
-            message: "Provide detail description",
+            message: "Please provide a description",
             name: "projectDescription"
         },
         {
             type: "input",
-            message: "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.",
+            message: "Please provide a guide for installation", 
             name: "installationProcess"
         },
         {
             type: "input",
-            message: "Provide instructions for use.",
-            name: "instruction"
-        },
-        {
-            type: "input",
             message: "Provide instructions examples for use.",
-            name: "instructionExample"
+            name: "usage"
         },
         {
             type: "input",
@@ -60,92 +37,60 @@ async function main(){
         },
         {
             type: "input",
-            message: "provide License url ",
-            name: "licenseUrl"
-        },
-        {
-            type: "input",
-            message: "please enter git hub user names of the contributor if any (If there are mulitple contributor, seperate names with comma and no space! )",
-            name: "contributorsGitUserName"
+            message: "Please enter the names of the contributers",
+            name: "contributors"
         },
         {
             type: "input",
             message: "Provide examples on how to run tests.",
             name: "tests"
+        },
+        {
+            type: "input",
+            message: "What are some frequent questions users might have? (and the answers in turn)",
+            name: "questions"
         }
         ]);
-        console.log(`starting`);
         console.log(userResponse);
-        const gitUsername = userResponse.username;
-        const gitBadgeStyle = userResponse.badgeStyle;
-        const gitBadgeLogo = userResponse.badgeLogo;
+        const userName = userResponse.userName;
         const projectTitle = userResponse.projectTitle;
         const projectDescription = userResponse.projectDescription;
         const installationProcess = userResponse.installationProcess;
-        const instruction = userResponse.instruction;
-        const instructionExample = userResponse.instructionExample;
+        const usage = userResponse.usage;
         const licenseName = userResponse.licenseName;
-        const licenseUrl = userResponse.licenseUrl;
-        const contributorUserNames = userResponse.contributorsGitUserName;
+        const contributors = userResponse.contributors;
         const tests = userResponse.tests;
-            // fetching data from git
-            // user
-        const gitResponse = await axios.get(`https://api.github.com/users/${gitUsername}`);
-        console.log(gitResponse);
-        const gitData = gitResponse.data;
-        const gitName = gitData.login;
-        const gitEmail = gitData.email;
-        const gitlocation = gitData.location;
-        const gitUrl = gitData.html_url;
-        const gitProfileImage = gitData.avatar_url;
-            // contributor
-        const contributorUserNamesArray = contributorUserNames.split(",");
-        console.log(contributorUserNamesArray);
-        // const  = listOfContributorsUserNames.
-        // contributorsGitUserName
-        var resultContributor;
-        for (i=0; i<contributorUserNamesArray.length; i++){
-            var contributorsGitUserName = contributorUserNamesArray[i]
-            const gitResponse2 = await axios.get(`https://api.github.com/users/${contributorsGitUserName}`);
-            var gitContribuProfileImage = gitResponse2.data.avatar_url;
-            var gitContribuUrl = gitResponse2.data.html_url;
-            var gitContribuEmail = gitResponse2.data.email;
-            var resultContributor = resultContributor + (`
-            \n <img src="${gitContribuProfileImage}" alt="drawing" width="150" display="inline"/> ${contributorsGitUserName}  GitHubLink: ${gitContribuUrl}`);
-        }
+        const frequentlyAQ = userResponse.questions;
+        
         var result = (` 
-[![GitHub version](https://badge.fury.io/gh/dfellner92%2FLettu7.svg)](https://badge.fury.io/gh/dfellner92%2FLettu7)
-# ${projectTitle} 
-# ${projectDescription}
-## Table of Contents
-\n* [Installation](#Installation)
-\n* [Instructions](#Instructions)
-\n* [License](#License)
-\n* [Contributors](#Contributors)
-\n* [Author](#Author)
-\n* [Tests](#Tests)
-## Installation
-${installationProcess}
-## Instructions
-${instruction}
-\`\`\`
-${instructionExample}
-\`\`\`
-## License 
-This project is licensed under the ${licenseName} - see the ${licenseUrl} file for details
-## Contributors
-${resultContributor}
-## Tests
-${tests}
-## Author 
-\n![ProfileImage](${gitProfileImage})
-\n**${gitName}**
-\nEmail: ${gitEmail}
-\nLocation:${gitlocation}
-\nGitHub: ${gitUrl}
-`)
+            [![GitHub version](https://badge.fury.io/gh/dfellner92%2FLettu7.svg)](https://badge.fury.io/gh/dfellner92%2FLettu7)
+            ## ${projectTitle}
+            # ${userName} 
+            # ${projectDescription}
+            ## Table of Contents
+            \n* [Installation](#Installation)
+            \n* [Usage](#Usage)
+            \n* [License](#License)
+            \n* [Contributors](#Contributors)
+            \n* [Tests](#Tests)
+            \n* [F.A.Q.](#F.A.Q.)
+            ## Installation
+            ${installationProcess}
+            ## Instructions
+            ${usage}
+            ## License 
+            ${licenseName} 
+            ## Contributors
+            ${contributors}
+            ## Tests
+            ${tests}
+            ## F.A.Q.
+            ${frequentlyAQ}
+            `)
 
-var writeResult = fs.writeFileSync(path.join(__dirname, 'readMe.md'), result ) 
-console.log("file generated....");
-    }
+    var writeResult = fs.writeFileSync(path.join(__dirname, 'readMe.md'), result ) 
+    console.log("file generated....");
+
+};
+
 main();
