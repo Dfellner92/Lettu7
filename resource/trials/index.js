@@ -63,34 +63,34 @@ async function main(){
         const frequentlyAQ = userResponse.questions;
         
         var result = (` 
-            [![GitHub version](https://badge.fury.io/gh/dfellner92%2FLettu7.svg)](https://badge.fury.io/gh/dfellner92%2FLettu7)
-            ## ${projectTitle}
-            # ${userName} 
-            # ${projectDescription}
-            ## Table of Contents
-            \n* [Installation](#Installation)
-            \n* [Usage](#Usage)
-            \n* [License](#License)
-            \n* [Contributors](#Contributors)
-            \n* [Tests](#Tests)
-            \n* [F.A.Q.](#F.A.Q.)
-            ## Installation
-            ${installationProcess}
-            ## Instructions
-            ${usage}
-            ## License 
-            ${licenseName} 
-            ## Contributors
-            ${contributors}
-            ## Tests
-            ${tests}
-            ## F.A.Q.
-            ${frequentlyAQ}
-            `)
+[![GitHub version](https://badge.fury.io/gh/dfellner92%2FLettu7.svg)](https://badge.fury.io/gh/dfellner92%2FLettu7)
+## ${projectTitle}
+# ${userName} 
+# ${projectDescription}
+## Table of Contents
+\n* [Installation](#Installation)
+\n* [Usage](#Usage)
+\n* [License](#License)
+\n* [Contributors](#Contributors)
+\n* [Tests](#Tests)
+\n* [F.A.Q.](#F.A.Q.)
+## Installation
+${installationProcess}
+## Instructions
+${usage}
+## License 
+${licenseName} 
+## Contributors
+${contributors}
+## Tests
+${tests}
+## F.A.Q.
+${frequentlyAQ}
+`)
 
-    var writeResult = fs.writeFileSync(path.join(__dirname, 'readMe.md'), result ) 
-    console.log("file generated....");
+var writeResult = fs.writeFileSync(path.join(__dirname, 'readMe.md'), result ) 
+console.log("file generated....");
 
-};
+}
 
 main();
